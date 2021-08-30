@@ -36,6 +36,7 @@ router.post('/removeFromFavorite', (req, res)=>{
     Favorite.findOneAndDelete({movieId:req.body.movieId, userFrom:req.body.userFrom})
     .exec((err, doc) =>{
         if(err) return res.status(400).send(err)
+        console.log(doc)
         res.status(200).json({success:true, doc})
     })
 })
